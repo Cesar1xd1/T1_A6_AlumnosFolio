@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 interface correccion{
 	Scanner entrada = new Scanner(System.in);
-	public static int validacionNatural() {
+	public static int validacion() {
 		int r = 0;
 		boolean e = false;
 		
@@ -120,7 +120,56 @@ class Alumno{
 public class PruebaMemoria {
 
 	public static void main(String[] args) {
+		Scanner entrada = new Scanner(System.in);
 		
+		RegistroDeAlumnos regAlu = new RegistroDeAlumnos();
+		String nombre;
+		String folio = null;
+		int edad = 0, opcion=0;
+		
+		
+		do {
+			System.out.println("Digite 1 para Agregar alumno ");
+			System.out.println("Digite 2 para Eliminar alumno ");
+			System.out.println("Digite 3 para Mostrar alumnos ");
+					System.out.println("Digite 4 para ***Salir***");
+			opcion = correccion.validacion();
+			switch (opcion) {
+			case 1:
+				String redes[]=new String[3];
+				System.out.println("Ingresa el nombre: ");
+				nombre = entrada.nextLine();
+				System.out.println("Ingresa la edad: ");
+				edad = correccion.validacion();
+				System.out.println("Ingrese su Facebook: ");
+				redes[0]=entrada.nextLine();
+				System.out.println("Ingrese su Instagram: ");
+				redes[1]=entrada.nextLine();
+				System.out.println("Ingrese su Whast App: ");
+				redes[2]=entrada.nextLine();
+				
+				if (regAlu.listaA.isEmpty()) {
+					regAlu.agregar(new Alumno(1,nombre, (byte)edad, redes));
+					System.out.println("...");
+				}else {
+					regAlu.agregar(new Alumno(regAlu.getnumFol() , nombre, (byte)edad, redes));
+				}
+				break;
+			case 2:
+				regAlu.eliminar(folio);break;
+			case 3:
+				regAlu.mostrar();break;
+			case 4:
+				System.out.println("A decidido salir del programa, Gracias!");break;
+			default:
+				System.out.println("Ups! Esra opcion invalida");break;
+			}
+			
+		}while (opcion!=4);
+		
+		System.out.println("Tamaño del arreglo: " + regAlu.listaA.size());
+		
+
 
 	}
 
