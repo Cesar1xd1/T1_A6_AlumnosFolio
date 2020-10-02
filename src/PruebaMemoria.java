@@ -11,7 +11,11 @@ interface correccion{
 		
 		do {
 			try {
+				
+				
 				r = entrada.nextInt();
+				
+				
 			} catch (java.util.InputMismatchException x) {
 				System.out.println("Ups! el dato que intentas ingresar no es valido");
 				entrada.nextLine();
@@ -107,7 +111,7 @@ class Alumno{
 	}
 
 	public String toString() {
-		return "Alumno [folio=" + folio + ", nombre=" + nombre + ", edad=" + edad + ", rs=" + Arrays.toString(rs) + "]";
+		return "Folio: " + folio + ", Nombre: " + nombre + ", Edad=" + edad + ", Redes Sociales:" + Arrays.toString(rs) + "]";
 	}
 	
 	
